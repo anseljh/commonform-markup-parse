@@ -29,7 +29,7 @@ function tokenize(text) {
   var lastColumn = 0
   return text
     // Split into lines.
-    .split('\n')
+    .split(/(\r\n|\n)+/)
     // For each line, create an Array of tokens for indentation and content.
     .map(function(line, index) {
       if ( ALL_SPACE.test(line) || COMMENT.test(line) ) {

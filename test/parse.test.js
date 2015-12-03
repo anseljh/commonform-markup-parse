@@ -108,7 +108,14 @@ tape('parser', function(test) {
     { content: [ 'ab' ] },
     'consecutive lines of paragraph')
 
-  test.deepEqual(
+    test.deepEqual(
+      parse(
+        [ 'a',
+          'b' ].join('\r\n')).form,
+      { content: [ 'ab' ] },
+      'consecutive lines of paragraph, using CRLF (\\r\\n) linebreaks')
+
+    test.deepEqual(
     parse(
       [ 'a',
         '    \\\\b',
